@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title>X-Image editor</title>
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="editor-wrapper clearfix">
+    <form action="#link" class="tools" id="tools">
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="brightness"/>
+            <label for="brightness">Brightness</label>
+            <div class="sub">
+                <!--<input data-id="brightness" type="range" min="-255" max="255" value="60"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input data-id="brightness" type="text" data-min="-255" data-max="255" value="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="contrast"/>
+            <label for="contrast">Contrast</label>
+            <div class="sub">
+                <!--<input data-id="contrast" type="range" min="-100" max="100" value="50"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input data-id="contrast" type="text" data-min="-100" data-max="100" value="50"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="sepia"/>
+            <label for="sepia">Sepia</label>
+            <div class="sub">
+                <!--<input data-id="sepia" type="range" min="0" max="255" value="60"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input data-id="sepia" type="text" data-min="0" data-max="255" value="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="sharpen"/>
+            <label for="sharpen">Sharpen</label>
+            <div class="sub">
+                <!--<input data-id="sharpen" type="range" min="0" max="250" value="30"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input data-id="sharpen" type="text" data-min="0" data-max="250" value="30"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="blur"/>
+            <label for="blur">Blur</label>
+            <div class="sub">
+                <!--<input data-id="blur" type="range" min="0" max="60" value="10"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input data-id="blur" type="text" data-min="0" data-max="60" value="10"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row">
+            <div class="label">Opacity</div>
+            <div class="sub">
+                <!--<input class="filter" id="opacity" type="range" value="1" min="0" max="1" step="0.1"/>-->
+                <div class="slider-wrapper">
+                    <span class="a wall"></span>
+                    <span class="b wall"></span>
+                    <span class="c wall"></span>
+                    <span class="d wall"></span>
+                    <input class="filter" id="opacity" type="text" value="1" data-min="0" data-max="1" data-step="0.01"/>
+                </div>
+            </div>
+        </div>
+        <div class="f-row only-select">
+            <input type="checkbox" class="filter" id="greyscale"/>
+            <label for="greyscale">Greyscale</label>
+        </div>
+        <div class="f-row">
+            <input type="checkbox" class="filter" id="desaturate"/>
+            <label for="desaturate">Desaturate</label>
+        </div>
+    </form>
+    <div class="editor-right">
+        <div class="f-row file-row">
+            <input type="file" id="file"/>
+            <label for="file" id="file-fail" class="file-fail"></label>
+            <label for="file">Select image</label>
+        </div>
+
+        <canvas id="editor" class="editor" width="600" height="500"></canvas>
+
+        <div class="f-row buttons clearfix">
+            <button class="rotate btn" value="90">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="none" d="M50.254,24.896c1.061,0.077,1.955,0.276,3.022,0.495c6.547,1.385,11.999,5.041,15.639,10.396l-9.379,6.121
+                        c-0.437,0.15-0.793,0.52-0.893,0.988c-0.152,0.721,0.314,1.434,1.03,1.584c0.017,0.003,0.051,0,0.067-0.004l25.438,5.381
+                        c0.697,0.154,1.419-0.3,1.57-1.031l5.473-25.57c0.12-0.532-0.112-1.058-0.557-1.379c-0.429-0.297-1.032-0.297-1.487-0.006
+                        l-9.491,6.227c-5.64-8.347-14.419-14.271-24.291-16.348c-0.066-0.016-0.086-0.024-0.172-0.034c-0.016,0-0.016,0-0.016,0
+                        s0,0-0.006,0.006c-0.015-0.006-0.026-0.006-0.036-0.009l0,0c-0.009-0.003-0.009-0.003-0.009-0.003
+                        c-0.003-0.006-0.003-0.006-0.029-0.006c-0.011-0.009-0.021-0.012-0.052-0.024c-1.98-0.4-3.861-0.689-5.822-0.783
+                        C50.254,13.788,50.254,22.64,50.254,24.896z"/>
+                </svg>
+                <span class="text">Rotate 90 degrees</span>
+            </button>
+            <button class="rotate btn" value="180">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="none" d="M58.338,9.318c-2.762-0.567-5.514-0.831-8.223-0.814c0.157,0.193,0.157,14.003,0.078,14.051
+                        c1.659-0.004,3.34,0.159,5.025,0.502c13.576,2.9,22.205,16.094,19.454,29.462c-1.396,6.547-5.077,11.998-10.471,15.639l-6.165-9.379
+                        c-0.15-0.438-0.523-0.793-0.995-0.893c-0.727-0.152-1.444,0.314-1.596,1.029c-0.003,0.018,0,0.051,0.003,0.068L50.03,84.422
+                        c-0.156,0.697,0.302,1.418,1.038,1.57l25.755,5.473c0.536,0.119,1.066-0.113,1.39-0.557c0.299-0.43,0.299-1.033,0.006-1.488
+                        l-6.272-9.49c8.407-5.641,14.375-14.42,16.467-24.291c0.016-0.066,0.024-0.086,0.033-0.172c0-0.016,0-0.016,0-0.016s0,0-0.006-0.006
+                        c0.006-0.016,0.006-0.027,0.01-0.035l0,0c0.003-0.01,0.003-0.01,0.003-0.01c0.006-0.004,0.006-0.004,0.006-0.029
+                        c0.01-0.012,0.013-0.021,0.024-0.053C92.75,34.363,79.247,13.762,58.338,9.318z"/>
+                </svg>
+                <span class="text">Rotate 180 degrees</span>
+            </button>
+            <button class="rotate btn" value="270">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="none" d="M89.3,56.736c4.368-21.273-9.192-42.014-30.186-46.474l-0.186-0.043c0,0-5.355-0.719-10.429-0.719
+                        c0,2.397,0,12.433,0,14.239c4.481-0.224,7.451,0.305,7.451,0.305c13.626,2.9,22.289,16.136,19.553,29.561
+                        C72.591,67.23,59.343,75.891,45.92,73.129c-6.573-1.4-12.049-5.095-15.703-10.509l9.417-6.187c0.439-0.151,0.796-0.525,0.896-0.999
+                        c0.153-0.729-0.315-1.45-1.034-1.602c-0.017-0.003-0.051,0-0.068,0.004l-25.543-5.439c-0.7-0.156-1.425,0.303-1.577,1.042
+                        L6.813,75.287c-0.121,0.538,0.113,1.07,0.56,1.395c0.43,0.3,1.036,0.3,1.493,0.006l9.53-6.295
+                        c5.663,8.438,14.479,14.427,24.392,16.526c0.066,0.015,0.086,0.024,0.173,0.033c0.015,0,0.015,0,0.015,0s0,0,0.007-0.006
+                        c0.014,0.006,0.026,0.006,0.035,0.01l0,0c0.01,0.003,0.01,0.003,0.01,0.003c0.002,0.006,0.002,0.006,0.029,0.006
+                        c0.011,0.01,0.022,0.013,0.053,0.024C64.15,91.271,84.838,77.721,89.3,56.736z"/>
+                </svg>
+                <span class="text">Rotate 270 degrees</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="js/plugins/fabric/fabric.min.js"></script>
+<script src="js/plugins/fabric/fabric.filter.saturation.js"></script>
+<script src="js/plugins/fabric/fabric.filter.sepiaLevel.js"></script>
+<script src="js/plugins/fabric/fabric.filter.gassianblur.js"></script>
+<script src="js/plugins/powerange/powerange.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

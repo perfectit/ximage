@@ -1,0 +1,38 @@
+.tools {
+  width: 300px;
+  padding-left: 40px;
+  float: left;
+
+  .f-row {
+    margin-bottom: 15px;
+  }
+  input[type=checkbox] {
+    margin: -3px 5px 0 0;
+    vertical-align: middle;
+  }
+  label {
+    cursor: pointer;
+  }
+  .btn {
+    width: 200px; height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    background: lighten(@clr-gray, 10%);
+
+    &:hover {
+      background: darken(@clr-gray, 10%);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0;
+      background: darken(@clr-gray, 20%);
+    }
+  }
+}
+.tiny-editor {
+  width: 900px;
+  margin: 0 auto;
+  padding-right: 40px;
+}

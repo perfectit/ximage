@@ -1,0 +1,182 @@
+.slider-wrapper {
+  display: block;
+  position: relative;
+  width: 600px; height: 60px;
+  margin: 15px 0 0;
+  .transform-style();
+  .perspective();
+
+  .wall-mix-1() {
+    content:'';
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:600px;
+    height:60px;
+  }
+
+  .wall {
+    position:absolute;
+    width:50%;
+    height:100%;
+    left:0px;
+    z-index:222;
+
+    &:before {
+      .wall-mix-1();
+      z-index:111;
+      background-color:rgba(0,0,0,0.05);
+    }
+  }
+
+  .a,
+  .b {
+    &:after {
+      .wall-mix-1();
+      z-index:333;
+    }
+  }
+
+  .a {
+    &:after {
+      background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.07)), to(rgba(0,0,0,0)));
+      background-image:-webkit-linear-gradient(top, rgba(0,0,0,0.07), rgba(0,0,0,0));
+      background-image:   -moz-linear-gradient(top, rgba(0,0,0,0.07), rgba(0,0,0,0));
+      background-image:     -o-linear-gradient(top, rgba(0,0,0,0.07), rgba(0,0,0,0));
+      background-image:        linear-gradient(to bottom, rgba(0,0,0,0.07), rgba(0,0,0,0));
+    }
+  }
+  .b {
+    top: 0px;
+    .transform(~'rotateX(75deg) translateY(-60px)');
+    .transform-origin(0%, 0%);
+
+    &:after {
+      background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.1)), to(rgba(255,255,255,0.25)));
+      background-image:-webkit-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+      background-image:   -moz-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+      background-image:     -o-linear-gradient(top, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+      background-image:        linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+    }
+  }
+  .c {
+    top: 0px;
+    .transform(~'rotateX(75deg)');
+    .transform-origin(100%, 100%);
+
+    &:before {
+      box-shadow: 0px 30px 20px -20px rgba(0,0,0,0.4),
+                  0px 40px 15px -15px rgba(0,0,0,0.25);
+
+      .ie9 & {
+        box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.4),
+                    0px 20px 15px -15px rgba(0,0,0,0.25);
+      }
+    }
+  }
+  .d {
+    .transform(~'translateZ(-60px) translateY(-15px)');
+  }
+  /* colors */
+  .a, .b {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116,198,43,0.8)), to(rgba(116,198,43,0.8)));
+    background-image: -webkit-linear-gradient(top, rgba(116,198,43,0.8), rgba(116,198,43,0.8));
+    background-image:    -moz-linear-gradient(top, rgba(116,198,43,0.8), rgba(116,198,43,0.8));
+    background-image:      -o-linear-gradient(top, rgba(116,198,43,0.8), rgba(116,198,43,0.8));
+    background-image:         linear-gradient(to bottom, rgba(116,198,43,0.8), rgba(116,198,43,0.8));
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:0% 0%;
+  }
+  .c, .d {
+    background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(116,198,43,0.5)), to(rgba(116,198,43,0.5)));
+    background-image:-webkit-linear-gradient(top, rgba(116,198,43,0.5), rgba(116,198,43,0.5));
+    background-image:   -moz-linear-gradient(top, rgba(116,198,43,0.5), rgba(116,198,43,0.5));
+    background-image:     -o-linear-gradient(top, rgba(116,198,43,0.5), rgba(116,198,43,0.5));
+    background-image:        linear-gradient(to bottom, rgba(116,198,43,0.5), rgba(116,198,43,0.5));
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:0% 0%;
+  }
+}
+.range-bar {
+  display: block;
+  width: 100%; height:5px;
+  position: absolute;
+  top:27px; left:0;
+  margin: 0px;
+  z-index:999;
+  border:none;
+  background:rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 2px rgba(255,255,255,0.25),
+              inset 0px 1px 3px rgba(0,0,0,0.3);
+
+  &:after,
+  &:before {
+    content:'|||||||||||||';
+    position:absolute;
+    left: 23px;
+    width:100%;
+    font: 300 1rem Arial, sans-serif;
+    letter-spacing:41.5px;
+    color:rgba(0,0,0,0.2);
+    text-shadow:1px 1px 0px rgba(255,255,255,0.2);
+  }
+  &:before {
+    top:-1.3rem;
+  }
+  &:after {
+    bottom:-1.2rem;
+  }
+}
+
+.range-quantity {
+  border-radius: 15px;
+  display: block;
+  height: 100%;
+  width: 0;
+}
+
+.range-handle {
+  width:26px; height:20px;
+  position: absolute;
+  top:-8px;
+  padding-left:4px;
+  border: none;
+  border-radius:2px;
+  font: 1.2rem/20px 'Anonymous Pro', sans-serif;
+  letter-spacing:3px;
+  text-align:center;
+  text-decoration:none;
+  color:rgba(0,0,0,0.5);
+  background:rgba(255,255,255,0.7);
+  cursor:pointer;
+  text-shadow: 1px 1px 2px rgba(255,255,255,1);
+  box-shadow:  1px 1px 8px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.range-min,
+.range-max {
+  display: none;
+}
+
+
+/**
+ * Style for disabling text selection on handle move.
+ */
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/**
+ * Style for handle cursor on disabled slider.
+ */
+.range-disabled {
+  cursor: default;
+}

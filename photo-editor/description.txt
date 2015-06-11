@@ -1,0 +1,20 @@
+- X-image editor
+- Технологии: HTML5(Canvas, FileReader API), CSS3, JavaScript
+- Возможности: наложение эффектов и трансформация изображений
+- поддержка браузерами: Firefox, Chrome, Opera, Safari, Android, Safari Mobile, IE9+ (в IE9 некоторые функции отсутствуют или работают не в полной мере)
+
+- Аналоги:
+сервисы
+http://pixlr.com/
+http://www.online-image-editor.com/
+http://www.fotor.com/
+http://ipiccy.com/
+http://www.befunky.com/
+http://www.freeonlinephotoeditor.com/
+http://www.picmonkey.com/
+Плагины и т.п.
+http://www.ajax-image-editor.com/
+https://github.com/imazen/studiojs
+http://evanw.github.io/webgl-filter/
+http://www.jpie.net/
+http://developers.photocat.com/

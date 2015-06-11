@@ -1,0 +1,48 @@
+@clr-gray: #D2D2D2;
+@clr-input: #B2B2B2;
+@clr-blue: #dcfdff;
+@clr-text: #566473;
+@ed-width: 1300px;
+
+/* =Mixins */
+.box-sizing(@param: border-box) {
+  -webkit-box-sizing: @param;
+  -moz-box-sizing: @param;
+  box-sizing: @param;
+}
+
+/* =Transforms */
+.transform(@params){
+  -webkit-transform: @params;
+  -ms-transform:     @params;
+  transform: 		 @params;
+  -webkit-backface-visibility: hidden;
+}
+.rotate(@angel: 45deg) {
+  -webkit-transform: rotate(@angel);
+  -ms-transform:     rotate(@angel);
+  transform: 		 rotate(@angel);
+  -webkit-backface-visibility: hidden;
+}
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -ms-transform-origin:     @x @y;
+  transform-origin:         @x @y;
+}
+.perspective(@value: 400) {
+  -webkit-perspective:~'@{value}px';
+  -ms-perspective:    ~'@{value}px';
+  perspective:        ~'@{value}px';
+}
+.transform-style(@param: ~'preserve-3d') {
+  -webkit-transform-style:@param;
+  -ms-transform-style:    @param;
+  transform-style:        @param;
+}
+
+/* =Animations */
+.transition (@params: ~'.3s') {
+  -webkit-transition: @params;
+  -ms-transition: @params;
+  transition: @params;
+}
